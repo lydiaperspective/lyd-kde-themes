@@ -1,0 +1,8 @@
+[Settings]
+FallbackTheme=default
+
+[Wallpaper]
+defaultWallpaperTheme=org.lydark.mystical.wallpaper
+defaultFileSuffix=.svg
+defaultWidth=1920
+defaultHeight=1080
