@@ -8,19 +8,20 @@ command -v xcursorgen >/dev/null 2>&1 || { echo "xcursorgen is required." >&2; e
 rm -rf "$OUT"
 install -d "$OUT/grub" "$OUT/plymouth" "$OUT/cursors/Mystical/cursors"
 
-# GRUB background is a raster image; GRUB does not render SVG directly.
 rsvg-convert -w 1920 -h 1080 "$ROOT/themes/mystical/grub/background.svg" -o "$OUT/grub/background.png"
 cp "$ROOT/themes/mystical/grub/theme.txt" "$OUT/grub/theme.txt"
 cp /usr/share/grub/unicode.pf2 "$OUT/grub/unicode.pf2"
 
-# Plymouth script plugin images.
-rsvg-convert -w 220 -h 220 "$ROOT/themes/mystical/plymouth/logo.svg" -o "$OUT/plymouth/logo.png"
+rsvg-convert -w 180 -h 180 "$ROOT/themes/mystical/plymouth/logo.svg" -o "$OUT/plymouth/logo.png"
 for i in 0 1 2 3 4 5 6 7; do
-  phase=$((i * 45))
+  case "$i" in
+    0) shade_x=50 ;; 1) shade_x=35 ;; 2) shade_x=20 ;; 3) shade_x=5 ;;
+    4) shade_x=-28 ;; 5) shade_x=5 ;; 6) shade_x=20 ;; 7) shade_x=35 ;;
+  esac
   cat > "$OUT/plymouth/moon-$i.svg" <<SVG
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
 <circle cx="50" cy="50" r="39" fill="#E9E1D5"/>
-<path d="M50 11 A39 39 0 0 0 50 89 A$((39 * (i <= 4 ? (4-i) : (i-4)) / 4)) 39 0 0 $((i < 4 ? 1 : 0)) 50 11Z" fill="#30203F"/>
+<circle cx="$shade_x" cy="50" r="39" fill="#30203F"/>
 <circle cx="50" cy="50" r="39" fill="none" stroke="#B69A55" stroke-width="2"/>
 </svg>
 SVG
@@ -29,7 +30,6 @@ done
 cp "$ROOT/themes/mystical/plymouth/lyd-mystical.plymouth" "$OUT/plymouth/"
 cp "$ROOT/themes/mystical/plymouth/lyd-mystical.script" "$OUT/plymouth/"
 
-# Render scalable source cursor artwork to PNG and compile Xcursor files.
 for kind in arrow hand text wait crosshair move not-allowed; do
   rsvg-convert -w 48 -h 48 "$ROOT/themes/mystical/cursors/$kind.svg" -o "$OUT/cursors/$kind.png"
 done
