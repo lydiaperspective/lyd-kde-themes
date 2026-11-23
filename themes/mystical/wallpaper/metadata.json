@@ -1,0 +1,11 @@
+{
+  "KPackageStructure": "Plasma/Wallpaper",
+  "KPlugin": {
+    "Id": "org.lydark.mystical.wallpaper",
+    "Name": "Mystical Moonlit Garden",
+    "Description": "A midnight-plum lunar sky with an antique-gold crescent and lavender botanicals.",
+    "Version": "1.0.0",
+    "License": "GPL-3.0-or-later",
+    "Authors": [{ "Name": "Lyd Ark Project" }]
+  }
+}
