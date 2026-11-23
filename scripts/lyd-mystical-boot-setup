@@ -1,32 +1,51 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-MARKER=/var/lib/lyd/mystical-boot-setup.done
-[[ -e "$MARKER" ]] && exit 0
+VERSION_FILE=/usr/share/lyd/mystical-theme-version
+STATE_FILE=/var/lib/lyd/mystical-theme-version
+GRUB_THEME=/usr/share/grub/themes/lyd-mystical/theme.txt
+
+if [[ ! -r "$VERSION_FILE" ]]; then
+  echo "Mystical theme version file is missing: $VERSION_FILE" >&2
+  exit 1
+fi
+
+installed_version="$(<"$VERSION_FILE")"
+[[ -n "$installed_version" ]] || { echo "Mystical theme version is empty." >&2; exit 1; }
+
+previous_version=""
+if [[ -r "$STATE_FILE" ]]; then
+  previous_version="$(<"$STATE_FILE")"
+fi
+
+if [[ "$installed_version" == "$previous_version" ]]; then
+  exit 0
+fi
+
 install -d -m 0755 /var/lib/lyd
 
-# Set the theme for the next generated initramfs. This is intentionally done
-# on the installed system, where /boot and the active boot tooling are present.
-if command -v plymouth-set-default-theme >/dev/null 2>&1; then
-  plymouth-set-default-theme --rebuild-initrd lyd-mystical
-else
-  echo "plymouth-set-default-theme is unavailable; leaving the installed Plymouth configuration in place." >&2
-fi
+# Apply the Plymouth theme and rebuild the installed system's initramfs.
+command -v plymouth-set-default-theme >/dev/null 2>&1 || {
+  echo "plymouth-set-default-theme is required but unavailable." >&2
+  exit 1
+}
+plymouth-set-default-theme --rebuild-initrd lyd-mystical
 
-# Fedora's GRUB configuration is generated into /boot/grub2/grub.cfg.
-# Keep the theme setting in /etc/default/grub so future regenerations retain it.
-if command -v grub2-mkconfig >/dev/null 2>&1; then
-  install -d /boot/grub2
-  install -d /etc/default
-  if grep -q '^GRUB_THEME=' /etc/default/grub 2>/dev/null; then
-    sed -i 's|^GRUB_THEME=.*|GRUB_THEME="/usr/share/grub/themes/lyd-mystical/theme.txt"|' /etc/default/grub
-  else
-    printf '\nGRUB_THEME="/usr/share/grub/themes/lyd-mystical/theme.txt"\n' >> /etc/default/grub
-  fi
-  grub2-mkconfig -o /boot/grub2/grub.cfg
+# Persist the GRUB theme setting, then regenerate Fedora's GRUB configuration.
+command -v grub2-mkconfig >/dev/null 2>&1 || {
+  echo "grub2-mkconfig is required but unavailable." >&2
+  exit 1
+}
+[[ -r "$GRUB_THEME" ]] || { echo "GRUB theme file is missing: $GRUB_THEME" >&2; exit 1; }
+install -d /boot/grub2 /etc/default
+if grep -q '^GRUB_THEME=' /etc/default/grub 2>/dev/null; then
+  sed -i "s|^GRUB_THEME=.*|GRUB_THEME=\"$GRUB_THEME\"|" /etc/default/grub
 else
-  echo "GRUB configuration path or grub2-mkconfig unavailable; installed theme assets are ready for later activation." >&2
+  printf '\nGRUB_THEME="%s"\n' "$GRUB_THEME" >> /etc/default/grub
 fi
+grub2-mkconfig -o /boot/grub2/grub.cfg
 
-touch "$MARKER"
-echo "Mystical boot theme configured. Plymouth initramfs and GRUB configuration were updated where available."
+# Record only after every required operation succeeds. A failed run retries
+# automatically on the next boot rather than marking a partial setup complete.
+printf '%s\n' "$installed_version" > "$STATE_FILE"
+echo "Mystical boot theme updated from '${previous_version:-none}' to '$installed_version'."
