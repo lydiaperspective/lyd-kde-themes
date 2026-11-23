@@ -1,0 +1,23 @@
+# Lyd Mystical GRUB theme
+desktop-image: "background.png"
+title-text: " "
+title-color: "#E9E1D5"
+title-font: "unicode"
+message-color: "#D7C8E8"
+message-font: "unicode"
+terminal-font: "unicode"
+terminal-box: "terminal_box_*.png"
+
++ boot_menu {
+  left = 8%
+  top = 34%
+  width = 58%
+  height = 48%
+  item_font = "unicode"
+  item_color = "#D7C8E8"
+  selected_item_color = "#21152E"
+  item_height = 44
+  item_padding = 12
+  item_spacing = 8
+  scrollbar = false
+}
