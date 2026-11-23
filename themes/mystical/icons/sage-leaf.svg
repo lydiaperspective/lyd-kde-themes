@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">Mystical sage leaf</title><desc id="desc">Two soft sage-green leaves with rounded contours and a gold stem accent.</desc>
+<g stroke="#526F58" stroke-width="5" stroke-linejoin="round">
+<path d="M124 219C42 190 30 116 54 66c64 5 106 69 70 153Z" fill="#91A88B"/>
+<path d="M131 217C105 135 150 65 211 48c30 60 0 135-80 169Z" fill="#A8BA9D"/>
+</g>
+<path d="M126 222C103 163 83 120 59 78M130 220c22-66 48-119 75-164" fill="none" stroke="#E2E8D8" stroke-width="5" stroke-linecap="round"/>
+<path d="M126 219l5 14 7-13" fill="none" stroke="#B69A55" stroke-width="4" stroke-linecap="round"/>
+</svg>
