@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">Mystical pentacle</title><desc id="desc">A softly rounded antique-gold pentacle in a simple circular frame.</desc>
+<circle cx="128" cy="128" r="99" fill="#30203F" stroke="#B69A55" stroke-width="8"/>
+<path d="M128 48L146 105 206 105 158 141 176 199 128 163 80 199 98 141 50 105 110 105Z" fill="#D9B96D" stroke="#8D6A35" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="128" cy="128" r="5" fill="#FFF0C5"/>
+</svg>
