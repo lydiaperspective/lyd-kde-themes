@@ -27,4 +27,7 @@ cat > "$DESTDIR/etc/xdg/kcminputrc" <<'EOF'
 cursorTheme=Mystical
 EOF
 
-echo "Installed Mystical GRUB, Plymouth and cursor assets."
+install -D -m 0755 "$ROOT/scripts/lyd-mystical-boot-setup" "$DESTDIR/usr/libexec/lyd/lyd-mystical-boot-setup"
+install -D -m 0644 "$ROOT/systemd/lyd-mystical-boot-setup.service" "$DESTDIR/usr/lib/systemd/system/lyd-mystical-boot-setup.service"
+
+echo "Installed Mystical GRUB, Plymouth, cursor and first-boot setup assets."
