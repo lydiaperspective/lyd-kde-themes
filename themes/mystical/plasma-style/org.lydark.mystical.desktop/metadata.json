@@ -1,0 +1,11 @@
+{
+  "KPlugin": {
+    "Id": "org.lydark.mystical.desktop",
+    "Name": "Mystical",
+    "Description": "Translucent moonlit-plum panels with a fine lavender outline and cozy botanical accents.",
+    "Version": "1.0.0",
+    "License": "GPL-3.0-or-later",
+    "Authors": [{ "Name": "Lyd Ark Project" }]
+  },
+  "X-Plasma-API": "6.0"
+}
