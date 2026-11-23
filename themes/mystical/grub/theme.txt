@@ -6,7 +6,6 @@ title-font: "unicode"
 message-color: "#D7C8E8"
 message-font: "unicode"
 terminal-font: "unicode"
-terminal-box: "terminal_box_*.png"
 
 + boot_menu {
   left = 8%
