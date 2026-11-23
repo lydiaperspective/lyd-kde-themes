@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-labelledby="title desc">
+  <title id="title">Mystical illustrated crescent</title>
+  <desc id="desc">A softly shaded antique-gold crescent with rounded contours and a tiny lavender sparkle.</desc>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#F4DEA0"/>
+      <stop offset="0.48" stop-color="#D9B96D"/>
+      <stop offset="1" stop-color="#A9823F"/>
+    </linearGradient>
+  </defs>
+  <path d="M190 24 C180 20 169 18 158 18 C90 18 36 72 36 140 C36 208 90 262 158 262 C201 262 239 240 260 205 C241 219 217 228 192 228 C129 228 78 177 78 114 C78 74 99 43 130 26 C149 17 171 17 190 24Z"
+    fill="url(#gold)" stroke="#8D6A35" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M132 31 C101 50 82 80 82 116 C82 176 130 225 190 228"
+    fill="none" stroke="#FFF0C5" stroke-width="7" stroke-linecap="round" opacity="0.55"/>
+  <path d="M226 48 L232 62 L246 68 L232 74 L226 88 L220 74 L206 68 L220 62Z"
+    fill="#D7C8E8" stroke="#583477" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="200" cy="101" r="4" fill="#FFF4D2" opacity="0.9"/>
+</svg>
