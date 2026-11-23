@@ -97,7 +97,8 @@ for alias, original in ALIASES.items():
     target.write_bytes(source.read_bytes())
 
 contexts = {"apps":"Applications","places":"Places","devices":"Devices","mimetypes":"MimeTypes","actions":"Actions","status":"Status","categories":"Categories"}
-directories = [f"scalable/{folder}" for folder in contexts]\nindex = ["[Icon Theme]", "Name=Mystical", "Comment=Cozy lunar and botanical icon theme for KDE Plasma", "Inherits=Breeze,hicolor", "Directories=" + ",".join(directories), "Example=system-file-manager", "DesktopDefault=48", "ToolbarDefault=22", "MainToolbarDefault=22", "SmallDefault=16", "PanelDefault=22", "DialogDefault=32", ""]
+directories = [f"scalable/{folder}" for folder in contexts]
+index = ["[Icon Theme]", "Name=Mystical", "Comment=Cozy lunar and botanical icon theme for KDE Plasma", "Inherits=Breeze,hicolor", "Directories=" + ",".join(directories), "Example=system-file-manager", "DesktopDefault=48", "ToolbarDefault=22", "MainToolbarDefault=22", "SmallDefault=16", "PanelDefault=22", "DialogDefault=32", ""]
 for folder, context in contexts.items():
     index += [f"[scalable/{folder}]", "Size=128", "Type=Scalable", "MinSize=16", "MaxSize=512", f"Context={context}", ""]
 OUT.mkdir(parents=True, exist_ok=True)
