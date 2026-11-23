@@ -60,9 +60,9 @@ The standalone SVG artwork remains available for branding. The installable icon 
 
 ## Boot splash
 
-The early-boot Plymouth theme uses a cartoon-inspired Lyd Ark crescent logo, midnight-plum background, and LYD ARK LINUX wordmark. Eight gold moon phases cross-fade in a continuous loop independent of Plymouth's boot-progress estimate. The Plymouth theme retains password and question prompts for encrypted installations.
+The early-boot Plymouth theme uses a cartoon-inspired Lyd Ark crescent logo, midnight-plum background, and LYD ARK LINUX wordmark. Eight moon phases animate in a continuous loop independent of Plymouth's boot-progress estimate. The script includes password and question callbacks so encrypted installations can still prompt for input. The theme assets are generated from SVG sources by `scripts/build-mystical-boot-assets.sh` and installed by `scripts/install-mystical-boot-assets.sh`.
 
-The later KDE Plasma splash remains a separate component and uses the approved golden crescent and shooting-star artwork.
+The GRUB menu uses a static 1920×1080 Mystical night-sky illustration, lavender menu text, and a dark-purple selection palette. GRUB does not run the animated Plymouth sequence; its boot menu remains static.\n\nThe coordinated Xcursor theme includes original arrow, link, text, wait, crosshair, move, and prohibited cursors, compiled into Xcursor files from SVG artwork. It inherits Breeze for uncommon cursor roles.\n\nThe later KDE Plasma splash remains a separate component and uses the approved golden crescent and shooting-star artwork.
 
 ## Component status
 
@@ -75,7 +75,7 @@ The later KDE Plasma splash remains a separate component and uses the approved g
 - [x] Cartoon crescent launcher emblem
 - [x] Initial Mystical cartoon SVG icon family
 - [x] Installable KDE icon theme with scalable application, folder, device, MIME, action, status, and category icons
-- [ ] Optional coordinated cursors
+- [x] Static Mystical GRUB menu theme (runtime validation pending)\n- [x] Animated Mystical Plymouth boot splash with password/question callbacks (runtime validation pending)\n- [x] Coordinated Mystical Xcursor theme (runtime validation pending)
 - [ ] Login-screen branding, where supported by the target Plasma version
 
 ## System Manager integration
