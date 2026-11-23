@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Mystical cartoon crescent moon</title>
+  <desc id="desc">A friendly, softly shaded antique-gold crescent with rounded tips and a tiny lavender sparkle.</desc>
+  <defs>
+    <linearGradient id="moonGold" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#F4DEA0"/>
+      <stop offset="0.48" stop-color="#D9B96D"/>
+      <stop offset="1" stop-color="#A9823F"/>
+    </linearGradient>
+    <linearGradient id="moonShade" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFF0C5" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#8D6A35" stop-opacity="0.12"/>
+    </linearGradient>
+  </defs>
+  <path d="M166 25
+    C158 22 149 20 140 20
+    C80 20 32 68 32 128
+    C32 188 80 236 140 236
+    C178 236 212 216 231 185
+    C214 197 194 204 172 204
+    C116 204 72 160 72 104
+    C72 68 91 40 119 25
+    C135 18 151 18 166 25Z"
+    fill="url(#moonGold)" stroke="#8D6A35" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M119 31 C91 48 76 76 76 107 C76 160 117 202 169 204"
+    fill="none" stroke="url(#moonShade)" stroke-width="7" stroke-linecap="round" opacity="0.8"/>
+  <path d="M204 42 L209 54 L221 59 L209 64 L204 76 L199 64 L187 59 L199 54Z"
+    fill="#D7C8E8" stroke="#583477" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="181" cy="87" r="4" fill="#FFF4D2" opacity="0.9"/>
+</svg>
