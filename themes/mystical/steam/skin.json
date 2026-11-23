@@ -1,0 +1,13 @@
+{
+  "name": "Lyd Mystical",
+  "author": "Lyd Atomic",
+  "description": "A moonlit purple, lavender, botanical and antique-gold theme matching the Lyd Mystical desktop.",
+  "version": "1.0.0",
+  "tags": ["Dark", "Purple", "Cozy", "Lyd Atomic"],
+  "github": {
+    "owner": "lydiaperspective",
+    "repo_name": "lyd-kde-themes"
+  },
+  "UseDefaultPatches": true,
+  "Steam-WebKit": "webkit.css"
+}
