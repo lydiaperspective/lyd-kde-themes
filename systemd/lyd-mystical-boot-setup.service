@@ -1,14 +1,13 @@
 [Unit]
-Description=Configure the Lyd Mystical GRUB and Plymouth themes
+Description=Apply the Lyd Mystical GRUB and Plymouth themes when their version changes
 Documentation=https://github.com/lydiaperspective/lyd-kde-themes
 After=local-fs.target
 RequiresMountsFor=/boot
-ConditionPathExists=!/var/lib/lyd/mystical-boot-setup.done
+ConditionPathExists=/usr/share/lyd/mystical-theme-version
 
 [Service]
 Type=oneshot
 ExecStart=/usr/libexec/lyd/lyd-mystical-boot-setup
-RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
