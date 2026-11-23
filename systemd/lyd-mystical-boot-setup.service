@@ -1,0 +1,14 @@
+[Unit]
+Description=Configure the Lyd Mystical GRUB and Plymouth themes
+Documentation=https://github.com/lydiaperspective/lyd-kde-themes
+After=local-fs.target
+RequiresMountsFor=/boot
+ConditionPathExists=!/var/lib/lyd/mystical-boot-setup.done
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/lyd/lyd-mystical-boot-setup
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
