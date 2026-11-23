@@ -5,7 +5,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 WORK="$(mktemp -d)"
 trap 'rm -rf "$WORK"' EXIT
 DESTDIR="${DESTDIR:-}"
-"$ROOT/scripts/build-mystical-boot-assets.sh" "$WORK/assets"
+bash "$ROOT/scripts/build-mystical-boot-assets.sh" "$WORK/assets"
 
 install -d "$DESTDIR/usr/share/grub/themes/lyd-mystical"
 cp -a "$WORK/assets/grub/." "$DESTDIR/usr/share/grub/themes/lyd-mystical/"
