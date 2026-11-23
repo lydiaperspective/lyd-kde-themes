@@ -1,0 +1,33 @@
+/*
+ * Lyd Mystical — shared Steam WebKit styling
+ * Palette: midnight plum, lavender, soft mint and antique gold.
+ */
+:root {
+  color-scheme: dark;
+  --lyd-bg: #171321;
+  --lyd-bg-deep: #100d19;
+  --lyd-panel: #211a30;
+  --lyd-panel-raised: #2b2140;
+  --lyd-panel-hover: #38294f;
+  --lyd-border: rgba(190, 163, 222, .20);
+  --lyd-text: #eee8f5;
+  --lyd-muted: #b9adc9;
+  --lyd-lavender: #9874c4;
+  --lyd-lavender-bright: #b99add;
+  --lyd-gold: #c5a96c;
+  --lyd-mint: #9bc9b4;
+  --lyd-radius: 9px;
+}
+html, body {
+  color: var(--lyd-text) !important;
+  scrollbar-color: #665080 var(--lyd-bg-deep);
+}
+* { scrollbar-width: thin; }
+button, [role="button"], input, select, textarea {
+  border-radius: var(--lyd-radius) !important;
+}
+button:focus-visible, [role="button"]:focus-visible, a:focus-visible {
+  outline: 2px solid var(--lyd-gold) !important;
+  outline-offset: 2px;
+}
+::selection { background: rgba(152, 116, 196, .45); color: #fff; }
