@@ -1,0 +1,18 @@
+/*
+ * Lyd Mystical — friends list and chat.
+ */
+body, #app, [class*="FriendsList"], [class*="ChatRoom"],
+[class*="ChatView"], [class*="Friend"] {
+  color: #eee8f5 !important;
+}
+[class*="FriendsList"], [class*="ChatRoom"], [class*="ChatView"] {
+  background: #171321 !important;
+}
+[class*="ChatMessage"], [class*="Message"] {
+  border-radius: 8px;
+}
+[class*="ChatMessage"]:hover, [class*="Friend"]:hover {
+  background: rgba(152,116,196,.13) !important;
+}
+[class*="Online"], [class*="online"] { color: #9bc9b4 !important; }
+[class*="Away"], [class*="away"] { color: #c5a96c !important; }
