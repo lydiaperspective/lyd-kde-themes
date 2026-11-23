@@ -1,0 +1,49 @@
+/*
+ * Lyd Mystical — Steam desktop, store, library, dialogs and settings.
+ */
+:root, ._1TdaAqMFAnh8anGd3W0J;
+._1TdaAqMFAnh8anGd3W0J,
+[class*="AppHub"], [class*="library"], [class*="Library"],
+[class*="Dialog"], [class*="Modal"], [class*="Panel"] {
+  --gpColor-Blue: #9874c4;
+  --gpColor-Green: #9bc9b4;
+  --gpColor-Yellow: #c5a96c;
+  --gpColor-Orange: #c58b72;
+}
+body, #app, .app, .responsive_page_frame {
+  background-color: #171321 !important;
+  color: #eee8f5 !important;
+}
+[class*="Panel"], [class*="panel"], [class*="Dialog"],
+[class*="Modal"], [class*="Popup"], [class*="Menu"],
+[class*="ContextMenu"] {
+  border-color: rgba(190,163,222,.20) !important;
+}
+button, [role="button"], .DialogButton, .DialogButtonPrimary,
+._3QS6OB6G4Kf3q3h3Y8YV6H {
+  border-radius: 8px !important;
+}
+button:not(:disabled):hover, [role="button"]:hover,
+.DialogButton:hover {
+  filter: brightness(1.12);
+}
+.DialogButtonPrimary, ._2V4u8b5j7j9q6XJ3b4V8Y {
+  background: linear-gradient(135deg, #76539f, #9874c4) !important;
+  color: #fff !important;
+}
+a, .Focusable, [class*="link"] { 
+  --gpColor-Blue: #b99add;
+}
+input, textarea, select, [class*="TextInput"] {
+  background: #100d19 !important;
+  color: #eee8f5 !important;
+  border: 1px solid rgba(190,163,222,.24) !important;
+  border-radius: 7px !important;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: #9874c4 !important;
+  box-shadow: 0 0 0 1px rgba(152,116,196,.35) !important;
+}
+[class*="progress"], progress {
+  accent-color: #9874c4;
+}
