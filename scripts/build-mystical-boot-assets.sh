@@ -16,7 +16,7 @@ rsvg-convert -w 180 -h 180 "$ROOT/themes/mystical/plymouth/logo.svg" -o "$OUT/pl
 for i in 0 1 2 3 4 5 6 7; do
   case "$i" in
     0) shade_x=50 ;; 1) shade_x=35 ;; 2) shade_x=20 ;; 3) shade_x=5 ;;
-    4) shade_x=-28 ;; 5) shade_x=5 ;; 6) shade_x=20 ;; 7) shade_x=35 ;;
+    4) shade_x=-28 ;; 5) shade_x=95 ;; 6) shade_x=80 ;; 7) shade_x=65 ;;
   esac
   cat > "$OUT/plymouth/moon-$i.svg" <<SVG
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
