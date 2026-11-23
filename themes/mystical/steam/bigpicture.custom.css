@@ -1,0 +1,22 @@
+/*
+ * Lyd Mystical — Big Picture / gamepad UI.
+ * Kept high-contrast with large touch/controller targets.
+ */
+body, #app, [class*="BasicUI"], [class*="BigPicture"],
+[class*="MainMenu"], [class*="QuickAccess"] {
+  background-color: #171321 !important;
+  color: #eee8f5 !important;
+}
+[class*="Panel"], [class*="Modal"], [class*="Dialog"],
+[class*="QuickAccess"], [class*="Menu"] {
+  border-color: rgba(190,163,222,.22) !important;
+}
+[class*="Focusable"]:focus, [class*="Focusable"].Focused,
+button:focus-visible, [role="button"]:focus-visible {
+  outline: 3px solid #c5a96c !important;
+  outline-offset: 3px;
+}
+[class*="Primary"], [class*="primary"] {
+  --gpColor-Blue: #9874c4;
+  --gpColor-Green: #9bc9b4;
+}
