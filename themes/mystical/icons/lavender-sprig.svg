@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">Mystical lavender sprig</title><desc id="desc">A soft cartoon lavender stem with rounded purple blossoms and sage-green leaves.</desc>
+<path d="M126 226C132 176 126 118 115 48" fill="none" stroke="#66876B" stroke-width="9" stroke-linecap="round"/>
+<g fill="#9874C4" stroke="#583477" stroke-width="3">
+<ellipse cx="101" cy="50" rx="13" ry="20" transform="rotate(-25 101 50)"/><ellipse cx="128" cy="39" rx="13" ry="20" transform="rotate(18 128 39)"/>
+<ellipse cx="91" cy="79" rx="13" ry="19" transform="rotate(-25 91 79)"/><ellipse cx="124" cy="69" rx="13" ry="19" transform="rotate(18 124 69)"/>
+<ellipse cx="97" cy="108" rx="13" ry="18" transform="rotate(-20 97 108)"/><ellipse cx="133" cy="99" rx="13" ry="18" transform="rotate(20 133 99)"/>
+</g>
+<g fill="#91A88B" stroke="#526F58" stroke-width="4" stroke-linejoin="round">
+<path d="M126 164C81 116 53 128 54 148c19 24 43 31 72 16Z"/>
+<path d="M128 191c38-43 67-35 70-15-17 25-41 33-70 15Z"/>
+<path d="M119 130c-30-34-52-27-54-10 13 19 32 25 54 10Z"/>
+</g>
+<path d="M119 224l7 8 7-8" fill="none" stroke="#B69A55" stroke-width="4" stroke-linecap="round"/>
+</svg>
