@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <g fill="#30243D" fill-opacity=".43">
+    <g id="topleft"><path d="M14 1H14Q1 1 1 14V14H14Z"/></g>
+    <rect id="top" x="14" y="1" width="36" height="13"/>
+    <g id="topright"><path d="M50 1H50Q63 1 63 14V14H50Z"/></g>
+    <rect id="left" x="1" y="14" width="13" height="36"/>
+    <rect id="center" x="14" y="14" width="36" height="36"/>
+    <rect id="right" x="50" y="14" width="13" height="36"/>
+    <g id="bottomleft"><path d="M1 50V50Q1 63 14 63H14V50Z"/></g>
+    <rect id="bottom" x="14" y="50" width="36" height="13"/>
+    <g id="bottomright"><path d="M50 50H63Q63 63 50 63Z"/></g>
+  </g>
+  <g fill="none" stroke="#C9A9DF" stroke-opacity=".58" stroke-width="1.15">
+    <path d="M14 1Q1 1 1 14V50Q1 63 14 63H50Q63 63 63 50V14Q63 1 50 1Z"/>
+  </g>
+  <rect id="hint-stretch-borders" x="0" y="0" width="1" height="1" fill="none"/>
+</svg>
