@@ -1,0 +1,16 @@
+{
+  "KPackageStructure": "Plasma/LookAndFeel",
+  "KPlugin": {
+    "Id": "org.lydark.mystical.desktop",
+    "Name": "Mystical",
+    "Description": "A midnight-plum Plasma experience with softly illustrated lunar and celestial artwork.",
+    "Version": "0.2.0",
+    "License": "GPL-3.0-or-later",
+    "Authors": [
+      {
+        "Name": "Lyd Ark Project"
+      }
+    ]
+  },
+  "X-Plasma-APIVersion": "2"
+}
