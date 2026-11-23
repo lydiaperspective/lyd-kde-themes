@@ -15,7 +15,8 @@ fi
 
 # Fedora's GRUB configuration is generated into /boot/grub2/grub.cfg.
 # Keep the theme setting in /etc/default/grub so future regenerations retain it.
-if command -v grub2-mkconfig >/dev/null 2>&1 && [[ -d /boot/grub2 ]]; then
+if command -v grub2-mkconfig >/dev/null 2>&1; then
+  install -d /boot/grub2
   install -d /etc/default
   if grep -q '^GRUB_THEME=' /etc/default/grub 2>/dev/null; then
     sed -i 's|^GRUB_THEME=.*|GRUB_THEME="/usr/share/grub/themes/lyd-mystical/theme.txt"|' /etc/default/grub
