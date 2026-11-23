@@ -7,9 +7,18 @@ logo_sprite.SetX(Window.GetWidth() / 2 - logo_image.GetWidth() / 2);
 logo_sprite.SetY(Window.GetHeight() / 2 - 190);
 logo_sprite.SetZ(10);
 
-moon_image = Image("moon-0.png");
-moon_sprite = Sprite(moon_image);
-moon_sprite.SetX(Window.GetWidth() / 2 - moon_image.GetWidth() / 2);
+# Preload all frames before animation begins. This avoids file lookup or
+# image-decoding failures from inside Plymouth's periodic refresh callback.
+moon_0 = Image("moon-0.png");
+moon_1 = Image("moon-1.png");
+moon_2 = Image("moon-2.png");
+moon_3 = Image("moon-3.png");
+moon_4 = Image("moon-4.png");
+moon_5 = Image("moon-5.png");
+moon_6 = Image("moon-6.png");
+moon_7 = Image("moon-7.png");
+moon_sprite = Sprite(moon_0);
+moon_sprite.SetX(Window.GetWidth() / 2 - moon_0.GetWidth() / 2);
 moon_sprite.SetY(Window.GetHeight() / 2 + 15);
 moon_sprite.SetZ(20);
 
@@ -19,7 +28,7 @@ status_sprite.SetX(Window.GetWidth() / 2 - status_image.GetWidth() / 2);
 status_sprite.SetY(Window.GetHeight() / 2 + 125);
 status_sprite.SetZ(30);
 
-detail_image = Image.Text("Preparing your desktop…", 0.78, 0.68, 0.86);
+detail_image = Image.Text("Preparing your desktop...", 0.78, 0.68, 0.86);
 detail_sprite = Sprite(detail_image);
 detail_sprite.SetX(Window.GetWidth() / 2 - detail_image.GetWidth() / 2);
 detail_sprite.SetY(Window.GetHeight() / 2 + 160);
@@ -29,9 +38,17 @@ global.frame = 0;
 global.tick = 0;
 fun refresh_callback() {
   global.tick++;
-  if (global.tick % 5 == 0) {
+  if (global.tick >= 10) {
+    global.tick = 0;
     global.frame = (global.frame + 1) % 8;
-    moon_sprite.SetImage(Image("moon-" + global.frame + ".png"));
+    if (global.frame == 0) { moon_sprite.SetImage(moon_0); }
+    else if (global.frame == 1) { moon_sprite.SetImage(moon_1); }
+    else if (global.frame == 2) { moon_sprite.SetImage(moon_2); }
+    else if (global.frame == 3) { moon_sprite.SetImage(moon_3); }
+    else if (global.frame == 4) { moon_sprite.SetImage(moon_4); }
+    else if (global.frame == 5) { moon_sprite.SetImage(moon_5); }
+    else if (global.frame == 6) { moon_sprite.SetImage(moon_6); }
+    else { moon_sprite.SetImage(moon_7); }
   }
 }
 Plymouth.SetRefreshFunction(refresh_callback);
@@ -58,6 +75,12 @@ fun question_callback(prompt, entry) {
 Plymouth.SetDisplayQuestionFunction(question_callback);
 
 fun normal_callback() {
-  set_detail("Preparing your desktop…", 0.78, 0.68, 0.86);
+  set_detail("Preparing your desktop...", 0.78, 0.68, 0.86);
 }
 Plymouth.SetDisplayNormalFunction(normal_callback);
+
+# Keep the animation responsive while boot progress updates arrive.
+fun progress_callback(duration, progress) {
+  global.progress = progress;
+}
+Plymouth.SetBootProgressFunction(progress_callback);
