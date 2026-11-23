@@ -1,8 +1,6 @@
 /*
  * Lyd Mystical — Steam desktop, store, library, dialogs and settings.
  */
-:root, ._1TdaAqMFAnh8anGd3W0J;
-._1TdaAqMFAnh8anGd3W0J,
 [class*="AppHub"], [class*="library"], [class*="Library"],
 [class*="Dialog"], [class*="Modal"], [class*="Panel"] {
   --gpColor-Blue: #9874c4;
