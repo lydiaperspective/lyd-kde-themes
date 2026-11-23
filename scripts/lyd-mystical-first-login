@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Apply the Mystical wallpaper once per user without overriding later choices.
+set -Eeuo pipefail
+WALLPAPER="/usr/share/wallpapers/org.lydark.mystical.wallpaper/contents/images/1920x1080.svg"
+MARKER="${XDG_CONFIG_HOME:-$HOME/.config}/.lyd-mystical-wallpaper-applied"
+[[ -f "$MARKER" ]] && exit 0
+[[ -r "$WALLPAPER" ]] || exit 0
+mkdir -p "$(dirname "$MARKER")"
+for _ in {1..30}; do
+  if command -v qdbus6 >/dev/null && qdbus6 org.kde.plasmashell /PlasmaShell >/dev/null 2>&1; then break; fi
+  sleep 1
+done
+if command -v plasma-apply-wallpaperimage >/dev/null && plasma-apply-wallpaperimage "$WALLPAPER"; then touch "$MARKER"; fi
