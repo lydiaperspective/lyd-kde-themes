@@ -1,69 +1,63 @@
-# Lyd Mystical Plymouth script theme
 Window.SetBackgroundTopColor (0.09, 0.06, 0.13);
 Window.SetBackgroundBottomColor (0.19, 0.12, 0.25);
 
 logo_image = Image("logo.png");
 logo_sprite = Sprite(logo_image);
 logo_sprite.SetX(Window.GetWidth() / 2 - logo_image.GetWidth() / 2);
-logo_sprite.SetY(Window.GetHeight() / 2 - logo_image.GetHeight() / 2 - 70);
+logo_sprite.SetY(Window.GetHeight() / 2 - 190);
 logo_sprite.SetZ(10);
 
 moon_image = Image("moon-0.png");
 moon_sprite = Sprite(moon_image);
 moon_sprite.SetX(Window.GetWidth() / 2 - moon_image.GetWidth() / 2);
-moon_sprite.SetY(Window.GetHeight() / 2 + 95);
+moon_sprite.SetY(Window.GetHeight() / 2 + 15);
 moon_sprite.SetZ(20);
 
-label = Image.Text("LYD ARK LINUX", 0.91, 0.86, 0.96);
-label_sprite = Sprite(label);
-label_sprite.SetX(Window.GetWidth() / 2 - label.GetWidth() / 2);
-label_sprite.SetY(Window.GetHeight() / 2 + 165);
-label_sprite.SetZ(30);
-
-status = Image.Text("Preparing your desktop…", 0.78, 0.68, 0.86);
-status_sprite = Sprite(status);
-status_sprite.SetX(Window.GetWidth() / 2 - status.GetWidth() / 2);
-status_sprite.SetY(Window.GetHeight() / 2 + 205);
+status_image = Image.Text("LYD ARK LINUX", 0.91, 0.86, 0.96);
+status_sprite = Sprite(status_image);
+status_sprite.SetX(Window.GetWidth() / 2 - status_image.GetWidth() / 2);
+status_sprite.SetY(Window.GetHeight() / 2 + 125);
 status_sprite.SetZ(30);
 
+detail_image = Image.Text("Preparing your desktop…", 0.78, 0.68, 0.86);
+detail_sprite = Sprite(detail_image);
+detail_sprite.SetX(Window.GetWidth() / 2 - detail_image.GetWidth() / 2);
+detail_sprite.SetY(Window.GetHeight() / 2 + 160);
+detail_sprite.SetZ(30);
+
 global.frame = 0;
+global.tick = 0;
 fun refresh_callback() {
-  global.frame = (global.frame + 1) % 8;
-  moon_sprite.SetImage(Image("moon-" + global.frame + ".png"));
+  global.tick++;
+  if (global.tick % 5 == 0) {
+    global.frame = (global.frame + 1) % 8;
+    moon_sprite.SetImage(Image("moon-" + global.frame + ".png"));
+  }
 }
-Plymouth.SetRefreshFunction(refresh_callback, 0.22);
+Plymouth.SetRefreshFunction(refresh_callback);
+
+fun set_detail(text, red, green, blue) {
+  detail_image = Image.Text(text, red, green, blue);
+  detail_sprite.SetImage(detail_image);
+  detail_sprite.SetX(Window.GetWidth() / 2 - detail_image.GetWidth() / 2);
+}
 
 fun message_callback(text) {
-  status = Image.Text(text, 0.78, 0.68, 0.86);
-  status_sprite.SetImage(status);
-  status_sprite.SetX(Window.GetWidth() / 2 - status.GetWidth() / 2);
+  set_detail(text, 0.78, 0.68, 0.86);
 }
-Plymouth.SetDisplayMessageFunction(message_callback);
-
-fun hide_message_callback() {
-  status = Image.Text("Preparing your desktop…", 0.78, 0.68, 0.86);
-  status_sprite.SetImage(status);
-  status_sprite.SetX(Window.GetWidth() / 2 - status.GetWidth() / 2);
-}
-Plymouth.SetHideMessageFunction(hide_message_callback);
+Plymouth.SetMessageFunction(message_callback);
 
 fun password_callback(prompt, bullets) {
-  status = Image.Text(prompt + "  " + bullets, 0.91, 0.86, 0.96);
-  status_sprite.SetImage(status);
-  status_sprite.SetX(Window.GetWidth() / 2 - status.GetWidth() / 2);
+  set_detail(prompt + "  " + bullets, 0.91, 0.86, 0.96);
 }
 Plymouth.SetDisplayPasswordFunction(password_callback);
 
 fun question_callback(prompt, entry) {
-  status = Image.Text(prompt + "  " + entry, 0.91, 0.86, 0.96);
-  status_sprite.SetImage(status);
-  status_sprite.SetX(Window.GetWidth() / 2 - status.GetWidth() / 2);
+  set_detail(prompt + "  " + entry, 0.91, 0.86, 0.96);
 }
 Plymouth.SetDisplayQuestionFunction(question_callback);
 
 fun normal_callback() {
-  status = Image.Text("Preparing your desktop…", 0.78, 0.68, 0.86);
-  status_sprite.SetImage(status);
-  status_sprite.SetX(Window.GetWidth() / 2 - status.GetWidth() / 2);
+  set_detail("Preparing your desktop…", 0.78, 0.68, 0.86);
 }
 Plymouth.SetDisplayNormalFunction(normal_callback);
