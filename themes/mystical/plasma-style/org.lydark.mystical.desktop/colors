@@ -4,12 +4,15 @@ ColorScheme=Mystical
 shadeSortColumn=true
 AccentColor=152,116,196
 
+# Plasma shell foreground is antique gold so symbolic panel and system-tray
+# icons inherit the Mystical gold accent. The application colour scheme remains
+# lavender/ivory and is installed separately as Mystical.colors.
 [Colors:Window]
 BackgroundNormal=33,21,46
 BackgroundAlternate=48,32,63
-ForegroundNormal=233,225,213
-ForegroundInactive=170,155,184
-ForegroundActive=215,200,232
+ForegroundNormal=182,154,85
+ForegroundInactive=145,125,78
+ForegroundActive=210,184,112
 ForegroundLink=184,154,220
 ForegroundVisited=152,116,196
 ForegroundNegative=224,112,125
